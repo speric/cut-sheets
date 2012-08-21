@@ -18,8 +18,6 @@ fabrication_pieces_as_array.each do |x|
   x[DESCRIPTION] = x[SIZE] + " " + x[DESCRIPTION] if x[LENGTH] == ""
 end
 
-puts fabrication_pieces_as_array.inspect
-
 iso_pieces = fabrication_pieces_as_array.group_by{|row| row[ISO_NUMBER]}
 
 fabrication_pieces_as_array.each do |x|
