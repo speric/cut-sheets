@@ -31,4 +31,5 @@ fabrication_pieces_as_array.delete_if {|x| x[LENGTH].empty? and iso_pieces[x[ISO
 CSV.open("cut-sheets.csv", "wb") do |csv|
   csv << ["ISO", "SIZE", "QUANTITY", "LENGTH", "DESCRIPTION"]
   fabrication_pieces_as_array.each { |x| csv << [x[ISO_NUMBER], x[SIZE], x[QUANTITY], x[LENGTH], x[DESCRIPTION]] }
+  fabrication_pieces_as_array.group_by { |x| x[DESCRIPTION] }.each { |key, values| csv << ["", values.first[SIZE], values.size, "", key]}
 end
