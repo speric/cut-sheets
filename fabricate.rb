@@ -11,10 +11,9 @@ fabrication_pieces_as_array = CSV.read("isos.csv")
 fabrication_pieces_as_array.delete_if { |x| x[ISO_NUMBER].empty? }
 
 fabrication_pieces_as_array.each do |x|
-  x[DESCRIPTION].gsub!(', 150LB, MALLEABLE IRON', '')
-  x[DESCRIPTION].gsub!(', 150LB MALLEABLE IRON', '')
-  x[DESCRIPTION].gsub!('API LINE PIPE COUPLING, THRD', 'API PIPE COUPLING, THRD')
-  x[DESCRIPTION].gsub!('150LB MALLEABLE IRON, GRINNELL', '')
+  x[DESCRIPTION].gsub!(/, 150.*/, '')
+  x[DESCRIPTION].gsub!(/ 150.*/, '')
+  x[DESCRIPTION].gsub!(' PIPE', '')
   x[DESCRIPTION] = x[SIZE] + " " + x[DESCRIPTION] if x[LENGTH].empty?
 end
 
