@@ -7,9 +7,9 @@ class Object
 end
 
 ISO_NUMBER  = 0
-SIZE 		    = 1
-QUANTITY 	  = 2
-LENGTH 		  = 3
+SIZE        = 1
+QUANTITY    = 2
+LENGTH      = 3
 DESCRIPTION = 4
 
 fabrication_pieces_as_array = CSV.read("isos.csv")
