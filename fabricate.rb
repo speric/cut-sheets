@@ -12,7 +12,7 @@ QUANTITY    = 2
 LENGTH      = 3
 DESCRIPTION = 4
 
-fabrication_pieces_as_array = CSV.read("isos.csv")
+fabrication_pieces_as_array = CSV.read(ARGV.first)
 
 fabrication_pieces_as_array.delete_if { |x| x[ISO_NUMBER].blank? }
 
