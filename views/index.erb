@@ -1,1 +1,7 @@
-==upload form here
+<p>Upload the QuickPen-generated CSV. A parsed CSV containing cut sheets will be returned.</p>
+
+<form action='/parse' enctype="multipart/form-data" method='POST'>
+  <input name="csv_from_quickpen" type="file" />
+  <br/>
+  <input type="submit" value="Parse" class="btn btn-primary"/>
+</form>
