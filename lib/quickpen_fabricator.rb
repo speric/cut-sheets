@@ -1,16 +1,18 @@
-class Object
+class String
+  BLANK_RE = /\A[[:space:]]*\z/
   def blank?
-    self.length == 1
+    empty? || BLANK_RE === self
   end
 end
 
 class QuickpenFabricator
   ISO_NUMBER  = 0
-  QUANTITY    = 1
-  SIZE        = 2
-  LENGTH      = 3
-  DESCRIPTION = 4
-  
+  MARK        = 1
+  QUANTITY    = 2
+  SIZE        = 3
+  LENGTH      = 4
+  DESCRIPTION = 5
+
   def initialize(attributes={})
     @import_file = attributes[:import_file]
   end
@@ -18,14 +20,14 @@ class QuickpenFabricator
   def generate_cut_sheets_csv_data
     @fabrication_pieces_as_array = CSV.parse(@import_file, headers: true)
     @fabrication_pieces_as_array.delete_if { |x| x[ISO_NUMBER].blank? }
-    
+
     clean_up_descriptions
     combine_cut_pipe_and_makeup_fittings
     generate_csv
   end
 
   private
-  
+
   def clean_up_descriptions
     @fabrication_pieces_as_array.each do |piece|
       piece[DESCRIPTION].gsub!(', 150LB, MALLEABLE IRON', '')
