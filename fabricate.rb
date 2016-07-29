@@ -8,11 +8,10 @@ class String
 end
 
 ISO_NUMBER  = 0
-MARK        = 1
+SIZE        = 1
 QUANTITY    = 2
-SIZE        = 3
-LENGTH      = 4
-DESCRIPTION = 5
+LENGTH      = 3
+DESCRIPTION = 4
 
 fabrication_pieces_as_array = CSV.read(ARGV.first)
 

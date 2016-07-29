@@ -7,11 +7,10 @@ end
 
 class QuickpenFabricator
   ISO_NUMBER  = 0
-  MARK        = 1
+  SIZE        = 1
   QUANTITY    = 2
-  SIZE        = 3
-  LENGTH      = 4
-  DESCRIPTION = 5
+  LENGTH      = 3
+  DESCRIPTION = 4
 
   def initialize(attributes={})
     @import_file = attributes[:import_file]
